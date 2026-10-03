@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Warm Voyagers</title>
+<meta name="description" content="Warm Voyagers turned a 2.8 km riverside trail in Keelung into a senior-friendly walking route. 2025 Changemaker Program Gold Award.">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: a single river-like column; the trail's real metrics run as a mono "route ribbon"; photos break the column at key moments. */
+:root {
+  --bg: #f3f7f6;
+  --surface: #ffffff;
+  --ink: #15312f;
+  --muted: #4d6764;
+  --line: #cfdedb;
+  --river: #2f8f8a;
+  --river-soft: #dcefec;
+  --coral: #d9694a;
+  --coral-soft: #fbe6de;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1d1c; --surface: #162827; --ink: #e5f0ee; --muted: #9db6b2; --line: #2a4240;
+    --river: #5cc2bb; --river-soft: #1b3836; --coral: #f08b6c; --coral-soft: #3a2420; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1d1c; --surface: #162827; --ink: #e5f0ee; --muted: #9db6b2; --line: #2a4240;
+  --river: #5cc2bb; --river-soft: #1b3836; --coral: #f08b6c; --coral-soft: #3a2420; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img { max-width: 100%; height: auto; }
+body { background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.65 var(--body); }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 20px; padding-block: 0 72px; }
+.prose { max-width: 64ch; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.1; margin: 0; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--river); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; border-radius: 3px; }
+.eyebrow { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--river); }
+section { display: grid; gap: 22px; padding-block: 56px; border-top: 1px solid var(--line); }
+
+/* Header */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 22px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 1.05rem var(--display); text-decoration: none; color: var(--ink); }
+.brand img { width: 34px; height: 34px; border-radius: 8px; }
+.top nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.95rem; }
+.top nav a { color: var(--muted); text-decoration: none; }
+.top nav a:hover { color: var(--ink); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; padding-block: 28px 48px; }
+.hero > * { min-width: 0; }
+.award { display: inline-flex; align-items: center; gap: 10px; background: var(--coral-soft); color: var(--ink); border-radius: 999px; padding: 7px 14px 7px 8px; font-size: 0.9rem; font-weight: 600; }
+.award b { background: var(--coral); color: var(--bg); border-radius: 999px; padding: 3px 10px; font: 500 0.72rem var(--mono); letter-spacing: 0.08em; }
+.hero h1 { font-size: clamp(2.3rem, 5.6vw, 3.9rem); font-weight: 800; letter-spacing: -0.025em; margin-block: 18px 18px; }
+.hero h1 span { color: var(--river); }
+.hero .lede { font-size: 1.15rem; color: var(--muted); max-width: 46ch; }
+.hero figure { margin: 0; }
+.hero figure img { border-radius: 14px; border: 1px solid var(--line); display: block; }
+figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+.btn { display: inline-block; padding: 11px 18px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; }
+.btn.primary { background: var(--river); color: var(--bg); }
+.btn.ghost { border: 1px solid var(--line); color: var(--ink); }
+
+/* Route ribbon */
+.ribbon { display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; }
+.ribbon div { flex: 1 1 150px; padding: 18px 20px; border-right: 1px dashed var(--line); }
+.ribbon div:last-child { border-right: 0; }
+.ribbon strong { display: block; font: 700 1.8rem/1 var(--display); color: var(--ink); font-variant-numeric: tabular-nums; }
+.ribbon span { display: block; margin-top: 6px; font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
+
+/* Problem */
+.cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.cols > div { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.cols h3 { color: var(--coral); }
+.cols p { color: var(--muted); font-size: 0.98rem; }
+
+/* Process */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; counter-reset: s; }
+.steps li { display: grid; grid-template-columns: 64px 1fr; gap: 18px; padding-block: 18px; border-bottom: 1px dashed var(--line); counter-increment: s; }
+.steps li::before { content: "km " counter(s); font: 500 0.78rem var(--mono); color: var(--river); padding-top: 4px; }
+.steps li > div { display: grid; gap: 4px; min-width: 0; }
+.steps p { color: var(--muted); }
+
+.gallery { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
+.gallery figure { margin: 0; min-width: 0; }
+.gallery img { display: block; width: 100%; border-radius: 12px; border: 1px solid var(--line); object-fit: cover; }
+.gallery .tall { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.gallery .tall img { aspect-ratio: 2 / 3; }
+
+/* Iteration callout */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+.split > * { min-width: 0; }
+.quote { background: var(--river-soft); border-radius: 14px; padding: 26px 28px; display: grid; gap: 12px; }
+.quote p.q { font: 500 1.25rem/1.45 var(--display); }
+.quote p.by { font-size: 0.9rem; color: var(--muted); }
+
+/* Team */
+.team { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.person { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px 24px; display: grid; gap: 6px; align-content: start; }
+.person .role { font: 500 0.75rem var(--mono); color: var(--coral); letter-spacing: 0.08em; text-transform: uppercase; }
+.person p { color: var(--muted); font-size: 0.98rem; }
+
+.partners { display: flex; flex-wrap: wrap; gap: 8px; }
+.partners span { border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 0.88rem; color: var(--muted); }
+
+.links { display: grid; gap: 10px; }
+.links a { display: flex; justify-content: space-between; gap: 16px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.links a span:last-child { color: var(--river); font-family: var(--mono); font-size: 0.85rem; white-space: nowrap; }
+.links a:hover { border-color: var(--river); }
+footer { color: var(--muted); font-size: 0.88rem; padding-top: 28px; border-top: 1px solid var(--line); }
+
+@media (max-width: 760px) {
+  .hero, .split, .gallery { grid-template-columns: 1fr; gap: 26px; }
+  .cols, .team { grid-template-columns: 1fr; }
+  .ribbon div { border-right: 0; border-bottom: 1px dashed var(--line); }
+  .ribbon div:last-child { border-bottom: 0; }
+  .steps li { grid-template-columns: 1fr; gap: 4px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn { transition: transform .15s ease; }
+  .btn:hover { transform: translateY(-1px); }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top"><img src="img/logo.jpg" alt="">Warm Voyagers <span lang="zh-Hant" style="color:var(--muted);font-weight:500">暖行者</span></a>
+    <nav>
+      <a href="#problem">Problem</a>
+      <a href="#process">What we did</a>
+      <a href="#results">Results</a>
+      <a href="#now">2026</a>
+      <a href="#team">Team</a>
+      <a href="zh.html" lang="zh-Hant" hreflang="zh-Hant">中文</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="top">
+    <div>
+      <span class="award"><b>GOLD</b> 2025 Changemaker Program · Ministry of Education, Taiwan</span>
+      <h1>A riverside trail that helps seniors <span>walk again</span>.</h1>
+      <p class="lede">We turned a 2.8 km trail along the Keelung River in Nuannuan, an aging neighborhood of Keelung, into a guided walking route with local stories and safe exercises for older residents.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://youtu.be/fgi_MNiqPKY" target="_blank" rel="noopener">Watch the project film</a>
+        <a class="btn ghost" href="https://www.yda.gov.tw/docDetail.aspx?uid=65&amp;pid=53&amp;docid=59262" target="_blank" rel="noopener">Official award list</a>
+      </div>
+    </div>
+    <figure>
+      <img src="img/map.jpg" alt="Illustrated walking map of the Keelung River trail in Nuannuan, with QR codes, landmarks and exercise spots">
+      <figcaption>The Nuannuan Walking Map: routes graded by difficulty, exercise spots, and QR codes linking to video guides.</figcaption>
+    </figure>
+  </div>
+
+  <div class="ribbon" role="list">
+    <div role="listitem"><strong>2.8 km</strong><span>of trail assessed for safety</span></div>
+    <div role="listitem"><strong>23</strong><span>residents and community leaders interviewed</span></div>
+    <div role="listitem"><strong>20+</strong><span>map versions revised from feedback</span></div>
+    <div role="listitem"><strong>40</strong><span>people at 2 guided walks</span></div>
+    <div role="listitem"><strong>100%</strong><span>of surveyed participants satisfied</span></div>
+  </div>
+
+  <section id="problem">
+    <span class="eyebrow">The problem</span>
+    <h2>The trail was there. Older residents had stopped using it.</h2>
+    <div class="cols">
+      <div>
+        <h3>Fear of falling</h3>
+        <p>About 19% of Nuannuan's residents are over 65. Keelung's wet winters make paths slippery, and after one fall many seniors stop going out, which speeds up physical decline.</p>
+      </div>
+      <div>
+        <h3>No guidance on the trail</h3>
+        <p>The trail had no safety information or walking guidance, so residents with weaker balance or strength didn't know which parts were safe for them.</p>
+      </div>
+      <div>
+        <h3>Lost local memory</h3>
+        <p>New housing brought in new residents who didn't know the river's history, while the older residents who did were walking it less. The two groups rarely met.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <span class="eyebrow">What we did · Apr – Nov 2025</span>
+    <h2>From interviews to a map people actually use</h2>
+    <ol class="steps">
+      <li><div><h3>Listened first</h3><p>Interviewed 23 people on the trail and in the community: trail users at different times of day, neighborhood chiefs, and community association leaders. We learned when and how people used the trail, and collected local stories about the old coal railway, the military housing villages, and the riverside Earth God temple.</p></div></li>
+      <li><div><h3>Assessed the trail like a clinician</h3><p>Our physical therapist measured the whole trail: 6 entrances, 5 staircases, 4 railings and 3 benches. We analyzed slopes, uneven surfaces and rest points, then graded the routes by difficulty.</p></div></li>
+      <li><div><h3>Designed exercises into the trail</h3><p>We created 4 exercises that use the trail's existing railings and stairs: stretching, balance, coordination and upper-body strength. Each one has its own spot on the map.</p></div></li>
+      <li><div><h3>Built the map with residents</h3><p>We combined stories, routes and exercises into one illustrated map with QR codes linking to 4 video tutorials. Residents and partners reviewed every draft, and we went through more than 20 versions.</p></div></li>
+      <li><div><h3>Walked it together</h3><p>We hosted 2 guided “Rejuvenation Walk” events in July 2025 (25 and 15 participants), mixing story-telling, exercises on the trail, and a playful “Rejuvenation Dance” at the Earth God temple.</p></div></li>
+      <li><div><h3>Left it in place</h3><p>We printed and handed out 60 maps, installed a map signboard on the trail, and set up LINE, Instagram and YouTube channels so residents can keep using it after the project ended.</p></div></li>
+    </ol>
+    <div class="gallery">
+      <figure>
+        <img src="img/exercises.jpg" alt="Team members demonstrating balance and strength exercises using the trail railings">
+        <figcaption>Exercises that use the trail's existing railings for balance and strength.</figcaption>
+      </figure>
+      <div class="tall">
+        <figure><img src="img/comic-walk.jpg" alt="Illustration of a grandfather walking strongly with his grandson by the river"></figure>
+        <figure><img src="img/comic-temple.jpg" alt="Illustration of a muscular Earth God appearing to an older man praying at the temple"></figure>
+        <figcaption style="grid-column: 1 / -1">Story illustrations for the pre-event short film: a grandfather who can't keep up with his grandson asks the local Earth God for help.</figcaption>
+      </div>
+    </div>
+  </section>
+
+  <section id="iteration">
+    <span class="eyebrow">What we learned</span>
+    <div class="split">
+      <div class="prose" style="display:grid;gap:16px">
+        <h2>Our first poster looked good to us. Residents didn't understand it.</h2>
+        <p>The first event poster got praise from friends for its design. Once we put it up in the neighborhood, several older residents asked us, “What is this event actually about?”</p>
+        <p>We redesigned it with community members' advice: bigger type, clearer images, and plainer wording. After the new poster went up, both events filled up quickly. We applied the same lesson to the map, revising it through more than 20 versions until residents could read it easily.</p>
+      </div>
+      <figure style="margin:0">
+        <img src="img/drafts.jpg" alt="Early sketches and drafts of the walking map" style="border-radius:12px;border:1px solid var(--line)">
+        <figcaption>Early drafts of the walking map.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="results">
+    <span class="eyebrow">Results</span>
+    <h2>What changed</h2>
+    <div class="gallery">
+      <figure>
+        <img src="img/map-in-use.jpg" alt="A resident scanning the QR code on the map signboard installed by the trail">
+        <figcaption>A resident scanning a video guide on the trail signboard.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/signboard.jpg" alt="Two team members smiling in front of the installed map signboard">
+        <figcaption>The map signboard, installed on the trail.</figcaption>
+      </figure>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>For residents</h3>
+        <p>All surveyed participants were satisfied or very satisfied. Participants said they learned how to use the trail safely, and new and long-time residents met through the walks.</p>
+      </div>
+      <div>
+        <h3>Residents took part themselves</h3>
+        <p>One participant filmed the walk with his own drone and edited two videos for YouTube. He told us he records moments like this so he can look back on them later.</p>
+      </div>
+      <div>
+        <h3>Funding and partners</h3>
+        <p>We ran the project on a budget of NT$209,410: a NT$100,000 government grant, plus NT$109,410 the team raised from other sources. We partnered with 6 local organizations.</p>
+      </div>
+    </div>
+    <div class="partners" aria-label="Partners">
+      <span>Dingnei Community Development Association</span>
+      <span>Zhongxing Community Development Association</span>
+      <span>Ding'an Community Development Association</span>
+      <span>White Swan Community Management Committee</span>
+      <span>Zuoxiajiao Studio</span>
+      <span>Keelung City Government, Secretariat</span>
+    </div>
+  </section>
+
+  <section id="now">
+    <span class="eyebrow">Now · 2026 · In progress</span>
+    <div class="split">
+      <div class="prose" style="display:grid;gap:16px">
+        <h2>Ask the Earth God: a health app for the temple on the trail</h2>
+        <p>Many older residents already walk to the Fu'an Temple by the suspension bridge every morning. In 2026 we are building on that habit with a mobile web app, voiced by the temple's Earth God, that turns the daily walk into a health routine.</p>
+        <ul style="margin:0;padding-left:1.2em;color:var(--muted);display:grid;gap:6px">
+          <li>Step counter with three walking routes (1K, 2K and 3K) and safety notes for each trail entrance and staircase</li>
+          <li>A 10-question health quiz in plain, friendly language</li>
+          <li>Health Q&amp;A with the Earth God, plus a daily blessing</li>
+          <li>Video lessons for our “Rejuvenation Dance”</li>
+        </ul>
+      </div>
+      <div class="links">
+        <a href="https://warmvoyagers25-star.github.io/landgod-quiz/" target="_blank" rel="noopener"><span>Try the app (in Chinese)</span><span>Open ↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <span class="eyebrow">Team</span>
+    <h2>Childhood friends from Nuannuan, working on their hometown</h2>
+    <p class="prose" style="color:var(--muted)">We grew up together in Nuannuan and, like many young people here, now commute to Taipei for work. This project was our way of bringing our professional skills home.</p>
+    <div class="team">
+      <div class="person">
+        <span class="role">Project Lead · Physical Therapist</span>
+        <h3>Yun-Chen Tsai</h3>
+        <p>Started the project, led the community interviews and partnerships, assessed the trail's safety, and designed the exercises.</p>
+      </div>
+      <div class="person">
+        <span class="role">Visual Designer</span>
+        <h3>Pin-Yen Liu</h3>
+        <p>Designed the walking map, posters and brand, documented the field research, and led the map's 20+ revisions with residents.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="links">
+    <span class="eyebrow">Links</span>
+    <div class="links">
+      <a href="https://youtu.be/fgi_MNiqPKY" target="_blank" rel="noopener"><span>Project film: Warm Voyagers' Rejuvenation Walk</span><span>YouTube ↗</span></a>
+      <a href="https://www.yda.gov.tw/docDetail.aspx?uid=65&amp;pid=53&amp;docid=59262" target="_blank" rel="noopener"><span>Official 2025 Changemaker award list (in Chinese; see “Actor” track, Gold)</span><span>yda.gov.tw ↗</span></a>
+    </div>
+  </section>
+
+  <footer>Warm Voyagers 暖行者 · Nuannuan, Keelung, Taiwan · 2025</footer>
+</div>
+
+</body>
+</html>
